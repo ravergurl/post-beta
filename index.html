@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎵 Post-Beta Feedback - Your Experience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .thank-you-note {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .thank-you-note h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .form-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: -30px -30px 20px -30px;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .checkbox-item:hover {
+            background: #e9ecef;
+        }
+
+        .checkbox-item input[type="checkbox"],
+        .checkbox-item input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .radio-item:hover {
+            background: #e9ecef;
+        }
+
+        .radio-item input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        .rating-scale {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .rating-number {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .rating-number:hover {
+            background: #e9ecef;
+        }
+
+        .rating-number input[type="radio"] {
+            margin-bottom: 5px;
+        }
+
+        .rating-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .submit-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 40px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .error-message {
+            display: none;
+            background: #f8d7da;
+            color: #721c24;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .feature-rating {
+            display: grid;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .feature-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .feature-name {
+            font-weight: bold;
+            flex: 1;
+        }
+
+        .feature-rating-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .feature-rating-buttons label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 0.9em;
+        }
+
+        .feature-rating-buttons label:hover {
+            background: #e9ecef;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .form-section {
+                padding: 20px;
+            }
+            
+            .section-title {
+                margin: -20px -20px 15px -20px;
+                font-size: 1.1em;
+            }
+            
+            .checkbox-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .radio-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .radio-item {
+                width: 100%;
+            }
+
+            .rating-scale {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .feature-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .feature-rating-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎉 Post-Beta Feedback</h1>
+            <p>Thank you for testing our platform! Your feedback will shape the future of rave culture.</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            
+            <div class="thank-you-note">
+                <h3>🙏 Your Impact Matters</h3>
+                <p>Every piece of feedback helps us build a better platform for our rave community. You're helping shape the future!</p>
+            </div>
+        </div>
+
+        <form id="postBetaFeedback">
+            <!-- Basic Information -->
+            <div class="form-section">
+                <div class="section-title">📋 Basic Information</div>
+                
+                <div class="form-group">
+                    <label for="email">Email (from pre-beta survey) *</label>
+                    <input type="email" id="email" name="email" required placeholder="Same email you used to sign up">
+                </div>
+                
+                <div class="form-group">
+                    <label for="testingDuration">How long did you test the platform? *</label>
+                    <select id="testingDuration" name="testingDuration" required>
+                        <option value="">Select duration</option>
+                        <option value="few-minutes">Just a few minutes</option>
+                        <option value="30-minutes">About 30 minutes</option>
+                        <option value="1-2-hours">1-2 hours</option>
+                        <option value="multiple-sessions">Multiple sessions over days</option>
+                        <option value="extensive">Extensive testing (weeks)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="testingContext">When/where did you primarily test it? *</label>
+                    <select id="testingContext" name="testingContext" required>
+                        <option value="">Select context</option>
+                        <option value="before-event">Before an actual event</option>
+                        <option value="during-event">During an event</option>
+                        <option value="after-event">After an event</option>
+                        <option value="random-time">Random free time</option>
+                        <option value="specifically-testing">Specifically set aside time to test</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Overall Experience -->
+            <div class="form-section">
+                <div class="section-title">⭐ Overall Experience</div>
+                
+                <div class="form-group">
+                    <label>Overall satisfaction with the platform *</label>
+                    <div class="rating-scale">
+                        <label class="rating-number">
+                            <input type="radio" name="overallSatisfaction" value="1" required>
+                            <span>1</span>
+                        </label>
+                        <label class="rating-number">
+                            <input type="radio" name="overallSatisfaction" value="2" required>
+                            <span>2</span>
+                        </label>
+                        <label class="rating-number">
+                            <input type="radio" name="overallSatisfaction" value="3" required>
+                            <span>3</span>
+                        </label>
+                        <label class="rating-number">
+                            <input type="radio" name="overallSatisfaction" value="4" required>
+                            <span>4</span>
+                        </label>
+                        <label class="rating-number">
+                            <input type="radio" name="overallSatisfaction" value="5" required>
+                            <span>5</span>
+                        </label>
+                        <label class="rating-number">
+                            <input type="radio" name="overallSatisfaction" value="6" required>
+                            <span>6</span>
+                        </label>
+                        <label class="rating-number">
+                            <input type="radio" name="overallSatisfaction" value="7" required>
+                            <span>7</span>
+                        </label>
+                        <label class="rating-number">
+                            <input type="radio" name="overallSatisfaction" value="8" required>
+                            <span>8</span>
+                        </label>
+                        <label class="rating-number">
+                            <input type="radio" name="overallSatisfaction" value="9" required>
+                            <span>9</span>
+                        </label>
+                        <label class="rating-number">
+                            <input type="radio" name="overallSatisfaction" value="10" required>
+                            <span>10</span>
+                        </label>
+                    </div>
+                    <div class="rating-labels">
+                        <span>Terrible</span>
+                        <span>Amazing</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>How likely are you to recommend this to other ravers? *</label>
+                    <div class="rating-scale">
+                        <label class="rating-number">
+                            <input type="radio" name="recommendationScore" value="0" required>
+                            <span>0</span>
+                        </label>
+                        <label class="rating-number">
+                            <input type="radio" name="recommendationScore" value="1" required>
+                            <span>1</span>
+                        </label>
+                        <label class="rating-number">
+                            <input type="radio" name="recommendationScore" value="2" required>
+                            <span>2</span>
+                        </label>
+                        <label class="rating-number">
+                            <input type="radio" name="recommendationScore" value="3" required>
+                            <span>3</span>
+                        </label>
+                        <label class="rating-number">
+                            <input type="radio" name="recommendationScore" value="4" required>
+                            <span>4</span>
+                        </label>
+                        <label class="rating-number">
+                            <input type="radio" name="recommendationScore" value="5" required>
+                            <span>5</span>
+                        </label>
+                        <label class="rating-number">
+                            <input type="radio" name="recommendationScore" value="6" required>
+                            <span>6</span>
+                        </label>
+                        <label class="rating-number">
+                            <input type="radio" name="recommendationScore" value="7" required>
+                            <span>7</span>
+                        </label>
+                        <label class="rating-number">
+                            <input type="radio" name="recommendationScore" value="8" required>
+                            <span>8</span>
+                        </label>
+                        <label class="rating-number">
+                            <input type="radio" name="recommendationScore" value="9" required>
+                            <span>9</span>
+                        </label>
+                        <label class="rating-number">
+                            <input type="radio" name="recommendationScore" value="10" required>
+                            <span>10</span>
+                        </label>
+                    </div>
+                    <div class="rating-labels">
+                        <span>Not at all likely</span>
+                        <span>Extremely likely</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="firstImpression">What was your first impression? *</label>
+                    <textarea id="firstImpression" name="firstImpression" rows="3" required placeholder="Describe your initial thoughts when you first used the platform..."></textarea>
+                </div>
+            </div>
+
+            <!-- Feature-Specific Feedback -->
+            <div class="form-section">
+                <div class="section-title">🔧 Feature Ratings</div>
+                
+                <p style="margin-bottom: 20px; color: #666;">Rate each feature you tested (1 = Poor, 5 = Excellent, N/A = Didn't use)</p>
+                
+                <div class="feature-rating">
+                    <div class="feature-item">
+                        <span class="feature-name">🛍️ Marketplace</span>
+                        <div class="feature-rating-buttons">
+                            <label>
+                                <input type="radio" name="marketplaceRating" value="1">
+                                <span>1</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="marketplaceRating" value="2">
+                                <span>2</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="marketplaceRating" value="3">
+                                <span>3</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="marketplaceRating" value="4">
+                                <span>4</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="marketplaceRating" value="5">
+                                <span>5</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="marketplaceRating" value="na">
+                                <span>N/A</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <span class="feature-name">💕 Matching/Compatibility</span>
+                        <div class="feature-rating-buttons">
+                            <label>
+                                <input type="radio" name="matchingRating" value="1">
+                                <span>1</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="matchingRating" value="2">
+                                <span>2</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="matchingRating" value="3">
+                                <span>3</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="matchingRating" value="4">
+                                <span>4</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="matchingRating" value="5">
+                                <span>5</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="matchingRating" value="na">
+                                <span>N/A</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <span class="feature-name">👗 Outfit Recommendations</span>
+                        <div class="feature-rating-buttons">
+                            <label>
+                                <input type="radio" name="outfitRating" value="1">
+                                <span>1</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="outfitRating" value="2">
+                                <span>2</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="outfitRating" value="3">
+                                <span>3</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="outfitRating" value="4">
+                                <span>4</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="outfitRating" value="5">
+                                <span>5</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="outfitRating" value="na">
+                                <span>N/A</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <span class="feature-name">🎧 DJ Profiles</span>
+                        <div class="feature-rating-buttons">
+                            <label>
+                                <input type="radio" name="djProfilesRating" value="1">
+                                <span>1</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="djProfilesRating" value="2">
+                                <span>2</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="djProfilesRating" value="3">
+                                <span>3</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="djProfilesRating" value="4">
+                                <span>4</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="djProfilesRating" value="5">
+                                <span>5</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="djProfilesRating" value="na">
+                                <span>N/A</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <span class="feature-name">📅 Event Pages</span>
+                        <div class="feature-rating-buttons">
+                            <label>
+                                <input type="radio" name="eventPagesRating" value="1">
+                                <span>1</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="eventPagesRating" value="2">
+                                <span>2</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="eventPagesRating" value="3">
+                                <span>3</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="eventPagesRating" value="4">
+                                <span>4</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="eventPagesRating" value="5">
+                                <span>5</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="eventPagesRating" value="na">
+                                <span>N/A</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <span class="feature-name">🛡️ Safety Features</span>
+                        <div class="feature-rating-buttons">
+                            <label>
+                                <input type="radio" name="safetyRating" value="1">
+                                <span>1</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="safetyRating" value="2">
+                                <span>2</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="safetyRating" value="3">
+                                <span>3</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="safetyRating" value="4">
+                                <span>4</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="safetyRating" value="5">
+                                <span>5</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="safetyRating" value="na">
+                                <span>N/A</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Feedback -->
+            <div class="form-section">
+                <div class="section-title">💭 Detailed Feedback</div>
+                
+                <div class="form-group">
+                    <label for="bestFeatures">What did you love most about the platform? *</label>
+                    <textarea id="bestFeatures" name="bestFeatures" rows="3" required placeholder="Tell us about your favorite features or experiences..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="frustrations">What frustrated you the most? *</label>
+                    <textarea id="frustrations" name="frustrations" rows="3" required placeholder="What problems did you encounter? What made you want to give up?"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="missing">What's missing that you expected to find? *</label>
+                    <textarea id="missing" name="missing" rows="3" required placeholder="What features or capabilities were you looking for but couldn't find?"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="improvements">If you could change one thing, what would it be? *</label>
+                    <textarea id="improvements" name="improvements" rows="3" required placeholder="What's the most important improvement we should make?"></textarea>
+                </div>
+            </div>
+
+            <!-- Usage Patterns -->
+            <div class="form-section">
+                <div class="section-title">📱 How You Used It</div>
+                
+                <div class="form-group">
+                    <label>Which features did you actually use? *</label>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="featuresUsed" value="marketplace" required>
+                            Marketplace browsing
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="featuresUsed" value="matching" required>
+                            Matching/compatibility
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="featuresUsed" value="outfit-recs" required>
+                            Outfit recommendations
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="featuresUsed" value="dj-profiles" required>
+                            DJ profiles
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="featuresUsed" value="events" required>
+                            Event pages
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="featuresUsed" value="safety" required>
+                            Safety features
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="featuresUsed" value="profile" required>
+                            Profile setup
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="featuresUsed" value="none" required>
+                            None - couldn't figure it out
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>What prevented you from using certain features?</label>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="barriers" value="confusing">
+                            Too confusing/unclear
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="barriers" value="broken">
+                            Seemed broken/buggy
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="barriers" value="slow">
+                            Too slow to load
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="barriers" value="not-interested">
+                            Not interested in that feature
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="barriers" value="time">
+                            Didn't have enough time
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="barriers" value="found-all">
+                            I used everything I wanted to
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Future Vision -->
+            <div class="form-section">
+                <div class="section-title">🔮 Future Vision</div>
+                
+                <div class="form-group">
+                    <label>Would you use this platform if it launched today? *</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="wouldUse" value="definitely" required>
+                            Definitely yes
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="wouldUse" value="probably" required>
+                            Probably yes
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="wouldUse" value="maybe" required>
+                            Maybe, depends on improvements
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="wouldUse" value="probably-not" required>
+                            Probably not
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="wouldUse" value="definitely-not" required>
+                            Definitely not
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>What would make you a regular user? *</label>
+                    <textarea id="regularUser" name="regularUser" rows="3" required placeholder="What changes or additions would make this essential for your rave lifestyle?"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="finalThoughts">Any final thoughts or suggestions? *</label>
+                    <textarea id="finalThoughts" name="finalThoughts" rows="4" required placeholder="Anything else you want us to know? Ideas, concerns, compliments, or criticisms are all welcome!"></textarea>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="form-section">
+                <div class="section-title">📞 Follow-up</div>
+                
+                <div class="form-group">
+                    <label>Can we contact you for follow-up questions? *</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="followupConsent" value="yes" required>
+                            Yes, I'm happy to help further
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="followupConsent" value="maybe" required>
+                            Maybe, depends on the ask
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="followupConsent" value="no" required>
+                            No, please don't contact me
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="earlyAccess">Want early access when we launch? *</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="earlyAccess" value="yes" required>
+                            Yes, keep me updated!
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="earlyAccess" value="no" required>
+                            No thanks
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Section -->
+            <div class="submit-section">
+                <h3>Thank You for Your Valuable Feedback! 🙏</h3>
+                <p style="margin: 20px 0; color: #666;">Your insights are helping us build the future of rave culture.</p>
+                
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    🎉 Submit Feedback
+                </button>
+                
+                <div class="success-message" id="successMessage">
+                    <h3>🎉 Feedback Submitted Successfully!</h3>
+                    <p>Thank you for taking the time to help us improve. Your feedback is invaluable!</p>
+                    <p><strong>What's Next:</strong></p>
+                    <ul style="text-align: left; margin: 15px 0;">
+                        <li>We'll analyze all feedback and prioritize improvements</li>
+                        <li>If you opted in, we'll keep you updated on our progress</li>
+                        <li>Watch for our official launch announcement!</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Keep raving! 🎵</strong></p>
+                </div>
+                
+                <div class="error-message" id="errorMessage">
+                    <h3>⚠️ Submission Error</h3>
+                    <p>There was an issue submitting your feedback. Please try again or contact us directly.</p>
+                </div>
+                
+                <p style="margin-top: 20px; font-size: 0.9em; color: #666;">
+                    <em>Your feedback helps shape the future of rave culture. Thank you for being part of this journey! 💜</em>
+                </p>
+            </div>
+        </form>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Firebase Configuration - Updated with your new config
+        const firebaseConfig = {
+            apiKey: "AIzaSyCRaMvRolAC4d1sLyNjeag8AOrSuR-8-KE",
+            authDomain: "twr-beta-790f2.firebaseapp.com",
+            projectId: "twr-beta-790f2",
+            storageBucket: "twr-beta-790f2.firebasestorage.app",
+            messagingSenderId: "836135798463",
+            appId: "1:836135798463:web:3aa87fa20618413403e80a"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Progress tracking
+        const form = document.getElementById('postBetaFeedback');
+        const progressFill = document.getElementById('progressFill');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        // Update progress bar
+        function updateProgress() {
+            const sections = document.querySelectorAll('.form-section');
+            let completedSections = 0;
+            
+            sections.forEach(section => {
+                const requiredInputs = section.querySelectorAll('input[required], select[required], textarea[required]');
+                let sectionCompleted = true;
+                
+                requiredInputs.forEach(input => {
+                    if (input.type === 'checkbox' || input.type === 'radio') {
+                        const groupName = input.name;
+                        const checkedInputs = section.querySelectorAll(`input[name="${groupName}"]:checked`);
+                        if (checkedInputs.length === 0) {
+                            sectionCompleted = false;
+                        }
+                    } else if (!input.value.trim()) {
+                        sectionCompleted = false;
+                    }
+                });
+                
+                if (sectionCompleted) {
+                    completedSections++;
+                }
+            });
+            
+            const progress = (completedSections / sections.length) * 100;
+            progressFill.style.width = progress + '%';
+        }
+
+        // Add event listeners for progress tracking
+        form.addEventListener('input', updateProgress);
+        form.addEventListener('change', updateProgress);
+
+        // Form submission handler
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = '⏳ Submitting...';
+            
+            try {
+                // Collect form data
+                const formData = new FormData(form);
+                const data = {
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                    submissionId: generateSubmissionId(),
+                    surveyType: 'post-beta',
+                };
+
+                // Basic info
+                data.email = formData.get('email');
+                data.testingDuration = formData.get('testingDuration');
+                data.testingContext = formData.get('testingContext');
+
+                // Overall experience
+                data.overallSatisfaction = parseInt(formData.get('overallSatisfaction'));
+                data.recommendationScore = parseInt(formData.get('recommendationScore'));
+                data.firstImpression = formData.get('firstImpression');
+
+                // Feature ratings
+                data.featureRatings = {
+                    marketplace: formData.get('marketplaceRating'),
+                    matching: formData.get('matchingRating'),
+                    outfits: formData.get('outfitRating'),
+                    djProfiles: formData.get('djProfilesRating'),
+                    eventPages: formData.get('eventPagesRating'),
+                    safety: formData.get('safetyRating')
+                };
+
+                // Detailed feedback
+                data.bestFeatures = formData.get('bestFeatures');
+                data.frustrations = formData.get('frustrations');
+                data.missing = formData.get('missing');
+                data.improvements = formData.get('improvements');
+
+                // Usage patterns
+                data.featuresUsed = formData.getAll('featuresUsed');
+                data.barriers = formData.getAll('barriers');
+
+                // Future vision
+                data.wouldUse = formData.get('wouldUse');
+                data.regularUser = formData.get('regularUser');
+                data.finalThoughts = formData.get('finalThoughts');
+
+                // Contact
+                data.followupConsent = formData.get('followupConsent');
+                data.earlyAccess = formData.get('earlyAccess');
+
+                // Submit to Firebase
+                await db.collection('postBetaResponses').add(data);
+
+                // Show success message
+                form.style.display = 'none';
+                successMessage.style.display = 'block';
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth' });
+
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                errorMessage.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = '🎉 Submit Feedback';
+            }
+        });
+
+        // Generate unique submission ID
+        function generateSubmissionId() {
+            return 'postbeta_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        }
+
+        // Validate required checkbox groups
+        function validateCheckboxGroups() {
+            const requiredGroups = ['featuresUsed'];
+
+            let isValid = true;
+
+            requiredGroups.forEach(groupName => {
+                const checkboxes = document.querySelectorAll(`input[name="${groupName}"]:checked`);
+                if (checkboxes.length === 0) {
+                    isValid = false;
+                    const container = document.querySelector(`input[name="${groupName}"]`).closest('.form-group');
+                    container.style.border = '2px solid #ff6b6b';
+                    setTimeout(() => {
+                        container.style.border = 'none';
+                    }, 3000);
+                }
+            });
+
+            return isValid;
+        }
+
+        // Add validation before submit
+        form.addEventListener('submit', (e) => {
+            if (!validateCheckboxGroups()) {
+                e.preventDefault();
+                alert('Please complete all required sections (marked with *)');
+                return false;
+            }
+        });
+
+        // Initialize progress on page load
+        updateProgress();
+    </script>
+</body>
+</html>
